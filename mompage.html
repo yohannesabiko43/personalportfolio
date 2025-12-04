@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የብርቱካን ቸርነት አሰፋ ቴጅ ቤት - የባህላዊ ኢትዮጵያ መድሃኒት</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* መሰረታዊ ዘመቻዎች */
+        :root {
+            --primary: #FF8C00;
+            --secondary: #FFA500;
+            --accent: #FF4500;
+            --light: #FFF8DC;
+            --dark: #8B4513;
+            --text: #333333;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Abyssinica SIL', 'GF Zemen', 'Nyala', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            direction: ltr;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ራስ ማስተካከያ */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .logo-sub {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--light);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--light);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        /* ዋና ክፍል */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571902943206-6e0e24d3654f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ስለ እኛ ክፍል */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: var(--light);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--primary);
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about-image i {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        /* ልጆች ክፍል */
+        .children {
+            background-color: var(--light);
+        }
+
+        .children-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .child-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .child-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .child-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .child-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .child-card p {
+            color: var(--text);
+        }
+
+        /* ምርቶች ክፍል */
+        .products {
+            background-color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-info p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        /* ሂደት ክፍል */
+        .process {
+            background-color: var(--light);
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* አስተያየቶች */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            padding: 30px;
+            background-color: var(--light);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            margin: 0 5px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .slider-dot.active {
+            opacity: 1;
+        }
+
+        /* ፎቶ ማሳያ */
+        .gallery {
+            background-color: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        /* አግኙን */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-detail i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* ግርጌ */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--white);
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ለሁሉም መሳሪያ ተግባራዊ */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                margin-top: 120px;
+                height: 80vh;
+            }
+        }
+
+        /* ተጨማሪ ዘመቻዎች */
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* የቴጅ ምስል ልዩ ዘመቻዎች */
+        .tej-bottle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bottle-shape {
+            width: 120px;
+            height: 200px;
+            background: linear-gradient(to bottom, #FFA500, #FF8C00);
+            border-radius: 30px 30px 10px 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .bottle-neck {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(to bottom, #FF8C00, #FF7F00);
+            position: absolute;
+            top: -60px;
+            left: 40px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .bottle-cap {
+            width: 50px;
+            height: 15px;
+            background: #8B4513;
+            position: absolute;
+            top: -75px;
+            left: 35px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tej-cup {
+            width: 150px;
+            height: 120px;
+            background: linear-gradient(to bottom, #FFA500, #FF8C00);
+            border-radius: 10px 10px 30px 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cup-handle {
+            width: 30px;
+            height: 50px;
+            border: 8px solid #FF8C00;
+            border-left: none;
+            border-radius: 0 20px 20px 0;
+            position: absolute;
+            right: -25px;
+            top: 30px;
+        }
+        
+        .tej-jug {
+            width: 140px;
+            height: 160px;
+            background: linear-gradient(to bottom, #FFA500, #FF8C00);
+            border-radius: 20px 20px 60px 60px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .jug-handle {
+            width: 40px;
+            height: 80px;
+            border: 10px solid #FF8C00;
+            border-left: none;
+            border-radius: 0 30px 30px 0;
+            position: absolute;
+            right: -30px;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ራስ ማስተካከያ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-wine-glass-alt logo-icon"></i>
+                <div class="logo-text">
+                    <div class="logo-main">የብርቱካን ቴጅ ቤት</div>
+                    <div class="logo-sub">ቸርነት አሰፋ</div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">መነሻ</a></li>
+                    <li><a href="#about">ስለ እኛ</a></li>
+                    <li><a href="#children">ልጆች</a></li>
+                    <li><a href="#products">ምርቶች</a></li>
+                    <li><a href="#process">ሂደት</a></li>
+                    <li><a href="#testimonials">አስተያየቶች</a></li>
+                    <li><a href="#gallery">ፎቶ</a></li>
+                    <li><a href="#contact">አግኙን</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ዋና ክፍል -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>ባህላዊ ኢትዮጵያዊ ቴጅ</h1>
+            <p>በፍቅር እና በትውልድ ጥበብ የተሰራ</p>
+            <a href="#products" class="btn">ቴጃችንን ይመልከቱ</a>
+        </div>
+    </section>
+
+    <!-- ስለ እኛ ክፍል -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>የእኛ ታሪክ</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>የብርቱካን ቸርነት አሰፋ ሬሳ</h3>
+                    <p>ለብዙ ዓመታት ያህል ብርቱካን ቸርነት አሰፋ የባህላዊ ቴጅ ማዘጋጃ ጥበብን ለመጠበቅ ሕይወቷን ሰጥታለች። እንደ አራት ልጆች እናት ሆና ይህንን ንግድ ለመገንባት ብዙ መስዋእትነት ሰርታለች፣ ለቤተሰቷ ለማቅረብ እያሰበች የኢትዮጵያን የተወደደ የማር ወይን ስራ ከዓለም ጋር ትጋርጣለች።</p>
+                    
+                    <p class="quote">"ብርቱካን ቸርነት አሰፋ ለልጆቿ ለማሳደግ ብዙ መስዋእትነት ሰርታለች። ብዙ ስራዎችን ተሰርታ ልጆቿን ለማሳደግ እና ይህንን ቴጅ ንግድ ለማምራት በተለያዩ ቦታዎች ሄዳ ለረጅም ጊዜ ሰርታ ተመልሳ አሁን በምትገኝበት ቦታ ተመልሳ ተመሳሳይ ስራዋን ትሰራለች።"</p>
+                    
+                    <p>የእሷ ቴጅ ቤት ንግድ ብቻ ሳይሆን የመጽናናት፣ የባህል እና የእናት ፍቅር ኃይል ማስረጃ ነው። የቴጅ እያንዳንዱ ጠጅ ለራሷ ልጆች የምትሰጠውን እንክብካቤ እና ትኩረት ተመስጦ ይገኛል።</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">ዓመታት ልምድ</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">ልጆች</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">ደስተኛ ደንበኞች</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn">ዛሬ ይተኩን</a>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-user-plus"></i>
+                    <p>የብርቱካን ቸርነት አሰፋ ፎቶ እዚህ ይቀመጣል</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ልጆች ክፍል -->
+    <section class="children section-padding" id="children">
+        <div class="container">
+            <div class="section-title">
+                <h2>የብርቱካን ልጆች</h2>
+            </div>
+            <div class="children-grid">
+                <div class="child-card">
+                    <div class="child-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>ሙሉቀን አሻንጎ</h3>
+                    <p>የብርቱካን ቸርነት አሰፋ የመጀመሪያ ልጅ</p>
+                </div>
+                <div class="child-card">
+                    <div class="child-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>ዮሐንስ አሻንጎ</h3>
+                    <p>የብርቱካን ቸርነት አሰፋ ሁለተኛ ልጅ</p>
+                </div>
+                <div class="child-card">
+                    <div class="child-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>ትህትናም አለማየሁ</h3>
+                    <p>የብርቱካን ቸርነት አሰፋ ሦስተኛ ልጅ</p>
+                </div>
+                <div class="child-card">
+                    <div class="child-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>ፒኮሎ አለማየሁ</h3>
+                    <p>የብርቱካን ቸርነት አሰፋ አራተኛ ልጅ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ምርቶች ክፍል -->
+    <section class="products section-padding" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>የእኛ ቴጅ ዓይነቶች</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="tej-bottle">
+                            <div class="bottle-shape">
+                                <div class="bottle-neck"></div>
+                                <div class="bottle-cap"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ባህላዊ ቴጅ</h3>
+                        <p>የእኛ ልዩ የማር ወይን፣ በመቶ ዓመታት ያስቆጠረው በኢትዮጵያ ባህል መሰረት ንጹህ ማር እና ጌሾ ቅጠሎች በመጠቀም የተሰራ።</p>
+                        <div class="price">35 ብር / ጠርሙስ</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="tej-bottle">
+                            <div class="tej-jug">
+                                <div class="jug-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ቅመም ያለው ቴጅ</h3>
+                        <p>ልዩ የሆነ ጣዕም ለማግኘት በባህላዊ ኢትዮጵያ ቅመሞች የተጣመረ ሽታ ያለው ዓይነት።</p>
+                        <div class="price">40 ብር / ጠርሙስ</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="tej-bottle">
+                            <div class="tej-cup">
+                                <div class="cup-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>ያረጀ ቴጅ</h3>
+                        <p>ለስድስት ወራት በላይ ያረጀ ፕሪሚየም ቴጅ፣ ውስብስብ ጣዕሞችን እና ለስላሳ መጨረሻ ያዳበረ።</p>
+                        <div class="price">50 ብር / ጠርሙስ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ሂደት ክፍል -->
+    <section class="process section-padding" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>የእኛ ባህላዊ ሂደት</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-honey-pot"></i>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>ንጹህ ማር ምርጫ</h3>
+                    <p>ከታመኑ አካባቢያዊ ንብ አቅባቾች የምናገኘውን ንጹህ ኢትዮጵያዊ ማር ብቻ እንጠቀማለን።</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>ባህላዊ ማጠነከሪያ</h3>
+                    <p>ቴጃችን በትውልድ የተላለፉ በጊዜ የተፈቀዱ ዘዴዎች በመጠቀም ይጠመቃል።</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>ተፈጥሯዊ ግጭት</h3>
+                    <p>የቴጃችንን ልዩ የጣዕም መገለጫ ለማዳበር ተፈጥሯዊ ግጭት እንፈቅዳለን።</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="step-number">4</div>
+                    <h3>በፍቅር የተሰራ</h3>
+                    <p>እያንዳንዱ ጠጅ ብርቱካን ለቤተሰቷ የምትሰጠውን ትኩረት እና እንክብካቤ ተመስጦ ይገኛል።</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- አስተያየቶች ክፍል -->
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>ደንበኞቻችን ምን ይላሉ?</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-text">
+                            የብርቱካን ቴጅ በጣም ልዩ ነው። ጣዕሙ ወደ አያቴ መመገቢያ ቤት በአዲስ አበባ ይመልሰኛል። በእያንዳንዱ ጭማቂ ፍቅርን እና ባህልን መጣፋት ትችላለህ።
+                        </div>
+                        <div class="testimonial-author">- መስፍን አ.</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-text">
+                            እንደ በመላው ኢትዮጵያ ቴጅ ከፈተንሁ ሰው፣ በእርግጠኝነት የብርቱካን ቴጅ ከሁሉም ጥሩ ነው ማለት እችላለሁ። የጣፋጭነት እና የግጭት ሚዛን ፍጹም ነው።
+                        </div>
+                        <div class="testimonial-author">- እለኒ ተ.</div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-text">
+                            የብርቱካን ንግድ ማገዝ ማለት አርተኛ እናት ማገዝ እና የኢትዮጵያ ባህል ማስተዋል ማለት ነው። የቴጅዋ ጥራት መደገፍ ቀላል ያደርገዋል።
+                        </div>
+                        <div class="testimonial-author">- ዳዊት መ.</div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ፎቶ ማሳያ ክፍል -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>የእኛ ፎቶ ማሳያ</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-color: #FFA500;">
+                    <div class="tej-bottle">
+                        <div class="bottle-shape">
+                            <div class="bottle-neck"></div>
+                            <div class="bottle-cap"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-color: #FF8C00;">
+                    <div class="tej-bottle">
+                        <div class="tej-jug">
+                            <div class="jug-handle"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-color: #FFA500;">
+                    <div class="tej-bottle">
+                        <div class="tej-cup">
+                            <div class="cup-handle"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-color: #FF8C00;">
+                    <div class="tej-bottle">
+                        <div class="bottle-shape" style="width: 100px; height: 160px;">
+                            <div class="bottle-neck" style="width: 30px; height: 50px; left: 35px; top: -50px;"></div>
+                            <div class="bottle-cap" style="width: 40px; height: 12px; left: 30px; top: -62px;"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-color: #FFA500;">
+                    <div class="tej-bottle">
+                        <div class="tej-jug" style="width: 120px; height: 140px;">
+                            <div class="jug-handle" style="width: 35px; height: 70px; right: -25px; top: 35px;"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background-color: #FF8C00;">
+                    <div class="tej-bottle">
+                        <div class="tej-cup" style="width: 130px; height: 100px;">
+                            <div class="cup-handle" style="width: 25px; height: 40px; right: -20px; top: 25px;"></div>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- አግኙን ክፍል -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>አግኙን</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>ብርቱካን ቴጅ ቤት ይተኩ</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p>ቺደ ቀበሌ 07</p>
+                                <p>ኢትዮጵያ</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+251 904 694 812</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>birtukantej@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <p>ሁሉም ቀናት: 2:00 ጥዋት - 12:00 ማታ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">ስምዎ</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ኢሜይልዎ</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">ርዕስ</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">መልእክትዎ</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">መልእክት ይላኩ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ግርጌ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>የብርቱካን ቴጅ ቤት</h3>
+                    <p>የኢትዮጵያን ባህል በአንድ ጠርሙስ መጠጥ በመጠበቅ ላይ። በፍቅር፣ መስዋእትነት እና በሚያምር የማር ወይን ላይ የተገነባ የቤተሰብ ንግድ።</p>
+                </div>
+                <div class="footer-column">
+                    <h3>ፈጣን አገናኞች</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">መነሻ</a></li>
+                        <li><a href="#about">ስለ እኛ</a></li>
+                        <li><a href="#children">ልጆች</a></li>
+                        <li><a href="#products">ምርቶች</a></li>
+                        <li><a href="#process">የማጠነከሪያ ሂደት</a></li>
+                        <li><a href="#contact">አግኙን</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>የመገኛ መረጃ</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> ቺደ ቀበሌ 07</li>
+                        <li><i class="fas fa-phone"></i> +251 904 694 812</li>
+                        <li><i class="fas fa-envelope"></i> birtukantej@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>የቅጂ መብት © 2023 የብርቱካን ቸርነት አሰፋ ቴጅ ቤት። ሁሉም መብቶች የተጠበቁ ናቸው። | በብርቱካን ቸርነት አሰፋ እና ቤተሰብ በፍቅር የተሰራ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ለሞባይል ስልክ ምናሌ
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // ለስላሳ ማውረድ
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // ሞባይል ምናሌ የተከፈተ ከሆነ ይዝጋ
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // የአስተያየት ማንሸራተቻ
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // አውቶማቲክ ስላይድ ለውጥ
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // የተግባር ቅጽ ማስኬድ
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('መልእክትዎ ተቀብሎአል! በቅርብ ጊዜ እንገናኝዎታለን።');
+            this.reset();
+        });
+
+        // የራስ ማስተካከያ ሽቅብ ተግባር
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'var(--primary)';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
+                header.style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>
